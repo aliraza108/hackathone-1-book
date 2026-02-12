@@ -1,0 +1,9 @@
+/**
+ * Custom CSS for the Physical AI & Humanoid Robotics textbook
+ * Modern theme with smooth animations
+ */
+
+/* Import modern theme */
+@import './modern-theme.css';
+
+/* Additional custom styles can go here */

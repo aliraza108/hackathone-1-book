@@ -1,0 +1,93 @@
+.retroButton {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+.retroButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.retroButton:hover::before {
+  left: 100%;
+}
+
+.variant-primary {
+  background-color: transparent;
+  color: var(--retro-primary);
+  border-color: var(--retro-primary);
+}
+
+.variant-primary:hover {
+  background-color: var(--retro-primary);
+  color: var(--retro-bg-dark);
+  box-shadow: 0 0 10px var(--retro-primary);
+}
+
+.variant-secondary {
+  background-color: transparent;
+  color: var(--retro-secondary);
+  border-color: var(--retro-secondary);
+}
+
+.variant-secondary:hover {
+  background-color: var(--retro-secondary);
+  color: var(--retro-bg-dark);
+  box-shadow: 0 0 10px var(--retro-secondary);
+}
+
+.variant-accent {
+  background-color: transparent;
+  color: var(--retro-accent);
+  border-color: var(--retro-accent);
+}
+
+.variant-accent:hover {
+  background-color: var(--retro-accent);
+  color: var(--retro-bg-dark);
+  box-shadow: 0 0 10px var(--retro-accent);
+}
+
+.size-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.size-medium {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.size-large {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+}

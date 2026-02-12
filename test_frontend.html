@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Physical AI & Humanoid Robotics - Frontend Test</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0d0d0d;
+            color: #00ff41;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #00ff41;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+        h1 {
+            color: #00ffff;
+            text-align: center;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .status.success {
+            background-color: rgba(0, 255, 65, 0.1);
+            border: 1px solid #00ff41;
+        }
+        .status.error {
+            background-color: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff0000;
+        }
+        button {
+            background-color: #0d0d0d;
+            color: #00ff41;
+            border: 1px solid #00ff41;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #00ff41;
+            color: #0d0d0d;
+        }
+        #response {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border: 1px solid #ff00ff;
+            margin-top: 15px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Physical AI & Humanoid Robotics - System Test</h1>
+        
+        <div id="backend-status" class="status">
+            <h3>Backend Status:</h3>
+            <p>Checking connection to backend server...</p>
+        </div>
+        
+        <h3>API Tests:</h3>
+        <button onclick="testHealth()">Test Health Endpoint</button>
+        <button onclick="testAPI()">Test API Endpoint</button>
+        
+        <div id="response"></div>
+    </div>
+
+    <script>
+        // Test backend connection
+        async function checkBackendStatus() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/health');
+                const data = await response.json();
+                
+                document.getElementById('backend-status').innerHTML = `
+                    <h3>Backend Status: <span style="color:#00ff41">CONNECTED</span></h3>
+                    <p>Status: ${data.status}</p>
+                    <p>Service: ${data.service}</p>
+                    <p>Server is running and responding correctly!</p>
+                `;
+                document.getElementById('backend-status').className = 'status success';
+            } catch (error) {
+                document.getElementById('backend-status').innerHTML = `
+                    <h3>Backend Status: <span style="color:#ff0000">DISCONNECTED</span></h3>
+                    <p>Error connecting to backend: ${error.message}</p>
+                    <p>Please ensure the backend server is running on port 8000</p>
+                `;
+                document.getElementById('backend-status').className = 'status error';
+            }
+        }
+
+        async function testHealth() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/health');
+                const data = await response.json();
+                document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('response').innerText = `Error: ${error.message}`;
+            }
+        }
+
+        async function testAPI() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/openapi.json');
+                const data = await response.json();
+                document.getElementById('response').innerText = `API Documentation Retrieved!\nEndpoints: ${Object.keys(data.paths).length} available`;
+            } catch (error) {
+                document.getElementById('response').innerText = `Error: ${error.message}`;
+            }
+        }
+
+        // Check backend status when page loads
+        window.onload = function() {
+            checkBackendStatus();
+        };
+    </script>
+</body>
+</html>

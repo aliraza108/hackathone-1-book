@@ -1,0 +1,28 @@
+.terminalBox {
+  background-color: var(--retro-bg-gray);
+  border: 2px solid var(--retro-primary);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  border-radius: 0;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.terminalTitle {
+  background-color: var(--retro-bg-dark);
+  color: var(--retro-primary);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--retro-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.terminalContent {
+  padding: 15px;
+  color: var(--retro-primary);
+}
+
+.crtBorder {
+  border: 2px solid var(--retro-primary);
+  box-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}

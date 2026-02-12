@@ -1,0 +1,58 @@
+.codeBlock {
+  background-color: var(--retro-bg-gray);
+  border: 1px solid var(--retro-primary);
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  font-family: 'Fira Code', monospace;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.codeTitle {
+  background-color: var(--retro-bg-dark);
+  color: var(--retro-primary);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--retro-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.preFormatted {
+  margin: 0;
+  padding: 15px;
+  overflow-x: auto;
+  color: var(--retro-primary);
+  line-height: 1.5;
+}
+
+.codeContent {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.crtBorder {
+  border: 1px solid var(--retro-primary);
+  box-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+.crtScanlines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 2px,
+    rgba(0, 255, 65, 0.05) 2px,
+    rgba(0, 255, 65, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}

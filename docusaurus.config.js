@@ -15,7 +15,7 @@ const config = {
   baseUrl: '/physical-ai-textbook/',
 
   // GitHub pages deployment config.
-  organizationName: 'hackathone-1-book', // Usually your GitHub org/user name.
+  organizationName: 'aliraza108', // Usually your GitHub org/user name.
   projectName: 'hackathone-1-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',

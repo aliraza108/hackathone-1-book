@@ -17,6 +17,7 @@ const config = {
   // GitHub pages deployment config.
   organizationName: 'aliraza108', // Usually your GitHub org/user name.
   projectName: 'hackathone-1-book', // Usually your repo name.
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
